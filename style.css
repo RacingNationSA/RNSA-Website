@@ -1855,3 +1855,31 @@ footer p {
     }
 
 }
+/* ==========================================
+   RNSA CART BUTTON
+========================================== */
+
+.cart-link {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+}
+
+#cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 5px;
+
+    background: #ff0000;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 9px;
+    font-weight: 900;
+}
