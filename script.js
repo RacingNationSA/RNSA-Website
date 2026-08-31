@@ -114,3 +114,28 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     });
 
 });
+// ==========================================
+// RNSA MERCH ORDER
+// ==========================================
+
+function orderProduct(product, price) {
+
+    const phoneNumber = "27000000000";
+
+    const message =
+        `Hi RNSA! 👋%0A%0A` +
+        `I'd like to order RNSA merchandise.%0A%0A` +
+        `Product: ${product}%0A` +
+        `Price: ${price}%0A%0A` +
+        `Please send me the available sizes, ` +
+        `colours and payment information.`;
+
+    const whatsappURL =
+        `https://wa.me/${phoneNumber}?text=${message}`;
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
