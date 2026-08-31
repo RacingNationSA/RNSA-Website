@@ -2018,3 +2018,165 @@ footer p {
     }
 
 }
+/* ==========================================
+   RNSA CART ITEMS
+========================================== */
+
+.cart-item {
+
+    display: grid;
+
+    grid-template-columns: 1fr auto auto auto;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    margin-bottom: 10px;
+
+    background: #0b0b0b;
+
+    border: 1px solid #202020;
+
+}
+
+
+.cart-item-info h3 {
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    margin-bottom: 5px;
+
+}
+
+
+.cart-item-info p {
+
+    color: #666666;
+
+    font-size: 12px;
+
+}
+
+
+.cart-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.cart-controls button {
+
+    width: 32px;
+
+    height: 32px;
+
+    border: 1px solid #333333;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+}
+
+
+.cart-controls button:hover {
+
+    background: #ff0000;
+
+    border-color: #ff0000;
+
+}
+
+
+.cart-controls span {
+
+    min-width: 20px;
+
+    text-align: center;
+
+}
+
+
+.cart-item-total {
+
+    color: #ff0000;
+
+    font-size: 18px;
+
+}
+
+
+.remove-item {
+
+    border: none;
+
+    background: transparent;
+
+    color: #666666;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+}
+
+
+.remove-item:hover {
+
+    color: #ff0000;
+
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 650px) {
+
+    .cart-item {
+
+        grid-template-columns: 1fr auto;
+
+        gap: 15px;
+
+    }
+
+
+    .cart-controls {
+
+        grid-column: 1;
+
+    }
+
+
+    .cart-item-total {
+
+        grid-column: 2;
+
+        grid-row: 1;
+
+    }
+
+
+    .remove-item {
+
+        grid-column: 2;
+
+        grid-row: 2;
+
+    }
+
+}
