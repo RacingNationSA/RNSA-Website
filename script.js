@@ -364,3 +364,19 @@ function removeFromCart(index) {
 // START WITH EMPTY CART
 
 updateCart();
+// RNSA SUPABASE TEST
+
+async function testSupabaseConnection() {
+    const { data, error } = await supabaseClient
+        .from("events")
+        .select("*")
+        .limit(1);
+
+    if (error) {
+        console.error("RNSA Supabase error:", error);
+    } else {
+        console.log("RNSA Supabase connected successfully!");
+    }
+}
+
+testSupabaseConnection();
