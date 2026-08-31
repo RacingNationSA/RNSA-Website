@@ -1,3 +1,11 @@
+const SUPABASE_URL = "https://rbabiowcirxgwxuhughx.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_2xLI0qxaaVze-w4raM3-Pw_JH9hMlUD";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 // ==========================================
 // RNSA - RACING NATION SOUTH AFRICA
 // Website JavaScript
