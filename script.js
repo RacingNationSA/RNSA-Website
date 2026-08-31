@@ -139,3 +139,220 @@ function orderProduct(product, price) {
     );
 
 }
+// ==========================================
+// RNSA SHOPPING CART
+// ==========================================
+
+let cart = [];
+
+
+// ADD PRODUCT TO CART
+
+function addToCart(productName, price) {
+
+    const existingProduct = cart.find(
+        item => item.name === productName
+    );
+
+    if (existingProduct) {
+
+        existingProduct.quantity += 1;
+
+    } else {
+
+        cart.push({
+            name: productName,
+            price: price,
+            quantity: 1
+        });
+
+    }
+
+    updateCart();
+
+    // Take customer to cart
+    document
+        .getElementById("cart")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+// UPDATE CART
+
+function updateCart() {
+
+    const cartItems =
+        document.getElementById("cart-items");
+
+    const cartCount =
+        document.getElementById("cart-count");
+
+    const cartTotal =
+        document.getElementById("cart-total");
+
+
+    // Calculate quantity
+
+    const totalQuantity = cart.reduce(
+        (total, item) =>
+            total + item.quantity,
+        0
+    );
+
+
+    // Calculate price
+
+    const totalPrice = cart.reduce(
+        (total, item) =>
+            total + (item.price * item.quantity),
+        0
+    );
+
+
+    cartCount.textContent =
+        totalQuantity;
+
+
+    cartTotal.textContent =
+        "R" + totalPrice.toLocaleString();
+
+
+    // Empty cart
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                <div class="empty-cart-icon">
+                    🛒
+                </div>
+
+                <h3>
+                    YOUR CART IS EMPTY
+                </h3>
+
+                <p>
+                    Add some official RNSA merchandise
+                    to your cart.
+                </p>
+
+                <a
+                    href="#merch"
+                    class="btn primary"
+                >
+                    VIEW MERCH
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    // Display products
+
+    cartItems.innerHTML = cart.map(
+        (item, index) => `
+
+        <div class="cart-item">
+
+            <div class="cart-item-info">
+
+                <h3>
+                    ${item.name}
+                </h3>
+
+                <p>
+                    R${item.price.toLocaleString()}
+                    each
+                </p>
+
+            </div>
+
+
+            <div class="cart-controls">
+
+                <button
+                    onclick="changeQuantity(${index}, -1)"
+                >
+                    −
+                </button>
+
+                <span>
+                    ${item.quantity}
+                </span>
+
+                <button
+                    onclick="changeQuantity(${index}, 1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <strong class="cart-item-total">
+
+                R${(
+                    item.price *
+                    item.quantity
+                ).toLocaleString()}
+
+            </strong>
+
+
+            <button
+                class="remove-item"
+                onclick="removeFromCart(${index})"
+            >
+                REMOVE
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+// CHANGE QUANTITY
+
+function changeQuantity(index, change) {
+
+    cart[index].quantity += change;
+
+
+    if (cart[index].quantity <= 0) {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    updateCart();
+
+}
+
+
+// REMOVE PRODUCT
+
+function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+}
+
+
+// START WITH EMPTY CART
+
+updateCart();
