@@ -1883,3 +1883,138 @@ footer p {
     font-size: 9px;
     font-weight: 900;
 }
+/* ==========================================
+   RNSA SHOPPING CART
+========================================== */
+
+.cart-section {
+    background: #080808;
+    border-top: 1px solid #1d1d1d;
+}
+
+
+.cart-items {
+
+    max-width: 1000px;
+
+    margin: 0 auto 35px;
+
+}
+
+
+.empty-cart {
+
+    padding: 70px 30px;
+
+    text-align: center;
+
+    background: #0b0b0b;
+
+    border: 1px solid #202020;
+
+}
+
+
+.empty-cart-icon {
+
+    font-size: 40px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.empty-cart h3 {
+
+    font-size: 28px;
+
+    font-weight: 900;
+
+    margin-bottom: 10px;
+
+}
+
+
+.empty-cart p {
+
+    color: #666666;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* ---------- CART SUMMARY ---------- */
+
+.cart-summary {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #222222;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+}
+
+
+.cart-summary span {
+
+    display: block;
+
+    color: #666666;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+}
+
+
+.cart-summary strong {
+
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 32px;
+
+    margin-top: 5px;
+
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+
+    .cart-summary {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .cart-summary .btn {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+}
