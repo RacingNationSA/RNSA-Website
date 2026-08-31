@@ -1633,3 +1633,225 @@ footer p {
     }
 
 }
+/* ==========================================
+   RNSA CONTACT / ENTER YOUR CAR
+========================================== */
+
+.contact {
+    background:
+        linear-gradient(
+            135deg,
+            #0d0000,
+            #050505 45%,
+            #090909
+        );
+
+    border-top: 1px solid #1d1d1d;
+}
+
+
+.contact-wrapper {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+
+}
+
+
+.contact-heading p {
+
+    color: #ff0000;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.contact-heading h2 {
+
+    font-size: clamp(65px, 8vw, 110px);
+
+    line-height: 0.85;
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+}
+
+
+.contact-heading h2 span {
+
+    color: #ff0000;
+
+}
+
+
+.contact-content {
+
+    max-width: 600px;
+
+}
+
+
+.contact-lead {
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    line-height: 1.4;
+
+    margin-bottom: 20px;
+
+}
+
+
+.contact-description {
+
+    color: #777777;
+
+    font-size: 15px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.contact-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.contact-info {
+
+    max-width: 1250px;
+
+    margin: 100px auto 0;
+
+    padding-top: 35px;
+
+    border-top: 1px solid #222222;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+
+.contact-info div {
+
+    padding: 0 25px;
+
+    border-right: 1px solid #222222;
+
+}
+
+
+.contact-info div:first-child {
+
+    padding-left: 0;
+
+}
+
+
+.contact-info div:last-child {
+
+    border-right: none;
+
+}
+
+
+.contact-info span {
+
+    display: block;
+
+    color: #ff0000;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.contact-info strong {
+
+    font-size: 18px;
+
+}
+
+
+/* ---------- CONTACT MOBILE ---------- */
+
+@media (max-width: 800px) {
+
+    .contact-wrapper {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .contact-heading h2 {
+
+        font-size: 70px;
+
+    }
+
+
+    .contact-info {
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+    }
+
+
+    .contact-info div {
+
+        padding: 0 0 25px;
+
+        border-right: none;
+
+        border-bottom: 1px solid #222222;
+
+    }
+
+
+    .contact-info div:last-child {
+
+        border-bottom: none;
+
+    }
+
+}
