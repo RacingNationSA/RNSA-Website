@@ -476,3 +476,36 @@ footer p {
     }
 
 }
+/* ---------- COUNTDOWN ---------- */
+
+.countdown {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.countdown-box {
+    min-width: 90px;
+    padding: 15px 12px;
+    background: #050505;
+    border: 1px solid #252525;
+    text-align: center;
+}
+
+.countdown-box strong {
+    display: block;
+    color: #ff0000;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.countdown-box span {
+    display: block;
+    margin-top: 8px;
+    color: #777777;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
