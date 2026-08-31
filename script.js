@@ -1,0 +1,89 @@
+// ==========================================
+// RNSA - RACING NATION SOUTH AFRICA
+// Website JavaScript
+// ==========================================
+
+
+// ---------- NEXT EVENT COUNTDOWN ----------
+
+// We don't have the real RNSA event date yet.
+// This is a temporary date that we will replace
+// once RNSA gives us the next event details.
+
+const eventDate = new Date("November 14, 2026 19:00:00").getTime();
+
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+
+    const difference = eventDate - now;
+
+
+    // If the event has already started
+    if (difference <= 0) {
+
+        document.getElementById("countdown").innerHTML =
+            "EVENT DAY";
+
+        return;
+    }
+
+
+    // Calculate time remaining
+
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+    );
+
+    const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+    );
+
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
+
+
+    // Display countdown
+
+    const countdown = document.getElementById("countdown");
+
+
+    if (countdown) {
+
+        countdown.innerHTML = `
+            <div class="countdown-box">
+                <strong>${days}</strong>
+                <span>DAYS</span>
+            </div>
+
+            <div class="countdown-box">
+                <strong>${hours}</strong>
+                <span>HOURS</span>
+            </div>
+
+            <div class="countdown-box">
+                <strong>${minutes}</strong>
+                <span>MINUTES</span>
+            </div>
+
+            <div class="countdown-box">
+                <strong>${seconds}</strong>
+                <span>SECONDS</span>
+            </div>
+        `;
+    }
+}
+
+
+// Update immediately
+updateCountdown();
+
+
+// Update every second
+setInterval(updateCountdown, 1000);
