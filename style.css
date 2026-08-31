@@ -1432,3 +1432,204 @@ footer p {
     }
 
 }
+/* ==========================================
+   RNSA ABOUT SECTION
+========================================== */
+
+.about-wrapper {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+
+}
+
+
+.section-label {
+
+    color: #ff0000;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.about-heading h2 {
+
+    font-size: clamp(55px, 7vw, 95px);
+
+    line-height: 0.9;
+
+    font-weight: 900;
+
+    letter-spacing: -3px;
+
+}
+
+
+.about-heading h2 span {
+
+    color: #ff0000;
+
+}
+
+
+.about-text {
+
+    max-width: 600px;
+
+}
+
+
+.about-lead {
+
+    color: #ffffff !important;
+
+    font-size: 25px !important;
+
+    line-height: 1.4;
+
+    margin-bottom: 25px !important;
+
+}
+
+
+.about-text p {
+
+    color: #888888;
+
+    font-size: 16px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ---------- VALUE CARDS ---------- */
+
+.about-values {
+
+    max-width: 1250px;
+
+    margin: 100px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-top: 1px solid #222222;
+
+}
+
+
+.value-card {
+
+    padding: 40px 30px;
+
+    border-right: 1px solid #222222;
+
+    transition: 0.3s;
+
+}
+
+
+.value-card:last-child {
+
+    border-right: none;
+
+}
+
+
+.value-card:hover {
+
+    background: #0f0f0f;
+
+}
+
+
+.value-number {
+
+    color: #ff0000;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+.value-card h3 {
+
+    font-size: 25px;
+
+    margin: 15px 0 10px;
+
+    font-weight: 900;
+
+}
+
+
+.value-card p {
+
+    color: #666666;
+
+    font-size: 13px;
+
+    max-width: 300px;
+
+}
+
+
+/* ---------- ABOUT MOBILE ---------- */
+
+@media (max-width: 800px) {
+
+    .about-wrapper {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .about-values {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .value-card {
+
+        border-right: none;
+
+        border-bottom: 1px solid #222222;
+
+    }
+
+
+    .value-card:last-child {
+
+        border-bottom: none;
+
+    }
+
+}
