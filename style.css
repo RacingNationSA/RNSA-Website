@@ -514,3 +514,55 @@ footer p {
     font-weight: bold;
     letter-spacing: 2px;
 }
+/* ---------- MOBILE MENU ---------- */
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+
+/* ---------- MOBILE NAVIGATION ---------- */
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+
+        width: 220px;
+
+        display: none;
+        flex-direction: column;
+        gap: 0;
+
+        background: #080808;
+        border: 1px solid #252525;
+        border-top: 2px solid #ff0000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        border-bottom: 1px solid #1d1d1d;
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px 20px;
+    }
+
+}
