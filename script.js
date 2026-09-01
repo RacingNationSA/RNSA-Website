@@ -380,3 +380,37 @@ async function testSupabaseConnection() {
 }
 
 testSupabaseConnection();
+// ==========================================
+// RNSA DEVELOPER LOGIN
+// ==========================================
+
+const developerLoginButton =
+    document.getElementById("developer-login-button");
+
+const developerLogin =
+    document.getElementById("developer-login");
+
+const closeDeveloperLogin =
+    document.getElementById("close-developer-login");
+
+
+if (developerLoginButton && developerLogin) {
+
+    developerLoginButton.addEventListener("click", () => {
+
+        developerLogin.style.display = "flex";
+
+    });
+
+}
+
+
+if (closeDeveloperLogin && developerLogin) {
+
+    closeDeveloperLogin.addEventListener("click", () => {
+
+        developerLogin.style.display = "none";
+
+    });
+
+}
