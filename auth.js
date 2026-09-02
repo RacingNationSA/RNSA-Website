@@ -88,7 +88,14 @@ if (loginForm) {
 
                 return;
             }
+if (roleData.role !== "developer") {
+    loginMessage.textContent =
+        "Developer access only.";
 
+    await supabaseClient.auth.signOut();
+
+    return;
+}
 
             // Save role for dashboard
 
