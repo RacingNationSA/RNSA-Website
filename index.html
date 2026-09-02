@@ -892,13 +892,14 @@
                 Add and manage RNSA merchandise.
             </p>
 
-            <button
-                type="button"
-                id="add-product-button"
-                class="dashboard-action"
-            >
-                + ADD PRODUCT
-            </button>
+           <button
+    type="button"
+    id="add-product-button"
+    class="dashboard-action"
+    onclick="document.getElementById('add-product-form').style.display='block'; this.style.display='none';"
+>
+    + ADD PRODUCT
+</button>
 
             <div id="products-admin-list"></div>
 <div id="add-product-form" class="admin-form" style="display: none;">
@@ -920,9 +921,14 @@
         SAVE PRODUCT
     </button>
 
-    <button type="button" id="cancel-product-button" class="dashboard-secondary">
-        CANCEL
-    </button>
+ <button
+    type="button"
+    id="cancel-product-button"
+    class="dashboard-secondary"
+    onclick="document.getElementById('add-product-form').style.display='none'; document.getElementById('add-product-button').style.display='inline-block';"
+>
+    CANCEL
+</button>
 
     <p id="product-form-message"></p>
 </div>
