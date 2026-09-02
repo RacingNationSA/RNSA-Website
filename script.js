@@ -433,3 +433,26 @@ if (logoutButton) {
         }
     });
 }
+// ==========================================
+// RNSA ADD PRODUCT FORM
+// ==========================================
+const addProductButton = document.getElementById("add-product-button");
+const addProductForm = document.getElementById("add-product-form");
+const cancelProductButton = document.getElementById("cancel-product-button");
+
+if (addProductButton && addProductForm) {
+    addProductButton.addEventListener("click", () => {
+        addProductForm.style.display = "block";
+        addProductButton.style.display = "none";
+    });
+}
+
+if (cancelProductButton && addProductForm) {
+    cancelProductButton.addEventListener("click", () => {
+        addProductForm.style.display = "none";
+
+        if (addProductButton) {
+            addProductButton.style.display = "inline-block";
+        }
+    });
+}
