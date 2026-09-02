@@ -100,8 +100,8 @@ if (loginForm) {
 
             // Go to dashboard
 
-            window.location.href =
-                "dashboard.html";
+            document.getElementById("developer-login").style.display = "none";
+document.getElementById("developer-dashboard").style.display = "block";
 
         }
     );
