@@ -901,7 +901,31 @@
             </button>
 
             <div id="products-admin-list"></div>
+<div id="add-product-form" class="admin-form" style="display: none;">
+    <h4>ADD PRODUCT</h4>
 
+    <label for="product-name">PRODUCT NAME</label>
+    <input type="text" id="product-name" placeholder="e.g. RNSA T-Shirt">
+
+    <label for="product-description">DESCRIPTION</label>
+    <textarea id="product-description" placeholder="Product description"></textarea>
+
+    <label for="product-price">PRICE (R)</label>
+    <input type="number" id="product-price" placeholder="279">
+
+    <label for="product-image-url">IMAGE URL</label>
+    <input type="url" id="product-image-url" placeholder="https://...">
+
+    <button type="button" id="save-product-button" class="dashboard-action">
+        SAVE PRODUCT
+    </button>
+
+    <button type="button" id="cancel-product-button" class="dashboard-secondary">
+        CANCEL
+    </button>
+
+    <p id="product-form-message"></p>
+</div>
         </div>
 
 
