@@ -414,3 +414,16 @@ if (closeDeveloperLogin && developerLogin) {
     });
 
 }
+// ==========================================
+// RNSA DEVELOPER LOGOUT
+// ==========================================
+const logoutButton = document.getElementById("logout-button");
+
+if (logoutButton) {
+    logoutButton.addEventListener("click", async () => {
+        await supabaseClient.auth.signOut();
+
+        document.getElementById("developer-dashboard").style.display = "none";
+        document.getElementById("developer-login").style.display = "flex";
+    });
+}
