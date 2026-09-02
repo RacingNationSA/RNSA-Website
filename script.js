@@ -420,10 +420,16 @@ if (closeDeveloperLogin && developerLogin) {
 const logoutButton = document.getElementById("logout-button");
 
 if (logoutButton) {
-    logoutButton.addEventListener("click", async () => {
-        await supabaseClient.auth.signOut();
+    logoutButton.addEventListener("click", () => {
+        const dashboard = document.getElementById("developer-dashboard");
+        const login = document.getElementById("developer-login");
 
-        document.getElementById("developer-dashboard").style.display = "none";
-        document.getElementById("developer-login").style.display = "flex";
+        if (dashboard) {
+            dashboard.style.display = "none";
+        }
+
+        if (login) {
+            login.style.display = "flex";
+        }
     });
 }
