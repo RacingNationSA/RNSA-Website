@@ -503,31 +503,19 @@ if (saveProductButton) {
 // ==========================================
 // SHOW DEVELOPER DASHBOARD AFTER LOGIN
 // ==========================================
-async function checkDeveloperSession() {
-    const { data: { session } } = await supabaseClient.auth.getSession();
+// ==========================================
+// SHOW DEVELOPER DASHBOARD AFTER LOGIN
+// ==========================================
 
-    if (!session) {
-        return;
-    }
+const rnsaRole = localStorage.getItem("rnsa_role");
 
-    const { data: roleData, error } = await supabaseClient
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", session.user.id)
-        .single();
-
-    if (error || !roleData || roleData.role !== "developer") {
-        return;
-    }
-
+if (rnsaRole === "developer") {
     const dashboard = document.getElementById("developer-dashboard");
 
     if (dashboard) {
         dashboard.style.display = "block";
     }
 }
-
-checkDeveloperSession();
 // ==========================================
 // SAVE PRODUCT TO SUPABASE
 // ==========================================
