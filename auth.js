@@ -8,7 +8,7 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
     "sb_publishable_2xLI0qxaaVze-w4raM3-Pw_JH9hMlUD";
 
-const supabaseClient =
+const authSupabaseClient =
     window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_KEY
@@ -46,7 +46,7 @@ if (loginForm) {
 
 
             const { data, error } =
-                await supabaseClient.auth.signInWithPassword({
+                await authSupabaseClient.auth.signInWithPassword({
                     email: email,
                     password: password
                 });
@@ -72,7 +72,7 @@ if (loginForm) {
             // Find user's role
 
             const { data: roleData, error: roleError } =
-                await supabaseClient
+                await authSupabaseClient
                     .from("user_roles")
                     .select("role")
                     .eq("user_id", user.id)
@@ -84,7 +84,7 @@ if (loginForm) {
                 loginMessage.textContent =
                     "Account has no RNSA role.";
 
-                await supabaseClient.auth.signOut();
+                await authSupabaseClient.auth.signOut();
 
                 return;
             }
@@ -92,7 +92,7 @@ if (roleData.role !== "developer") {
     loginMessage.textContent =
         "Developer access only.";
 
-    await supabaseClient.auth.signOut();
+    await authSupabaseClient.auth.signOut();
 
     return;
 }
