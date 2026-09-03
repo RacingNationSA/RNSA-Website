@@ -107,8 +107,7 @@ if (roleData.role !== "developer") {
 
             // Go to dashboard
 
-            document.getElementById("developer-login").style.display = "none";
-document.getElementById("developer-dashboard").style.display = "block";
+window.location.href = "index.html";
 
         }
     );
