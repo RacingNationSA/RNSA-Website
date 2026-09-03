@@ -452,3 +452,31 @@ if (cancelProductButton && addProductForm) {
         }
     });
 }
+// ==========================================
+// SHOW DEVELOPER DASHBOARD AFTER LOGIN
+// ==========================================
+async function checkDeveloperSession() {
+    const { data: { session } } = await supabaseClient.auth.getSession();
+
+    if (!session) {
+        return;
+    }
+
+    const { data: roleData, error } = await supabaseClient
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", session.user.id)
+        .single();
+
+    if (error || !roleData || roleData.role !== "developer") {
+        return;
+    }
+
+    const dashboard = document.getElementById("developer-dashboard");
+
+    if (dashboard) {
+        dashboard.style.display = "block";
+    }
+}
+
+checkDeveloperSession();
