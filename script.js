@@ -395,13 +395,9 @@ const closeDeveloperLogin =
 
 
 if (developerLoginButton && developerLogin) {
-
     developerLoginButton.addEventListener("click", () => {
-
-        developerLogin.style.display = "flex";
-
+        developerLogin.style.setProperty("display", "flex", "important");
     });
-
 }
 
 
