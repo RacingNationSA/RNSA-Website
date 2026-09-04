@@ -2297,3 +2297,33 @@ footer p {
 .back-home:hover {
     color: #ffffff;
 }
+/* ==========================================
+   DEVELOPER PRODUCT MANAGEMENT
+========================================== */
+
+.admin-product-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid #333;
+    background: #111;
+}
+
+.admin-product-item strong {
+    flex: 1;
+}
+
+.delete-product-button {
+    padding: 8px 14px;
+    background: #ff0000;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-product-button:hover {
+    background: #cc0000;
+}
