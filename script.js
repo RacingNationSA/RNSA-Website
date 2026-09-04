@@ -552,13 +552,49 @@ async function loadAdminProducts() {
 
         productItem.className = "admin-product-item";
 
-        productItem.innerHTML = `
-            <strong>${product.name}</strong>
-            <span>R${Number(product.price).toFixed(2)}</span>
-        `;
+       productItem.innerHTML = `
+    <strong>${product.name}</strong>
+    <span>R${Number(product.price).toFixed(2)}</span>
+    <button type="button" class="delete-product-button" data-id="${product.id}">
+        DELETE
+    </button>
+`;
 
         list.appendChild(productItem);
     });
 }
 
 loadAdminProducts();
+// ==========================================
+// DELETE PRODUCT
+// ==========================================
+
+document.addEventListener("click", async function (event) {
+
+    if (!event.target.classList.contains("delete-product-button")) {
+        return;
+    }
+
+    const productId = event.target.dataset.id;
+
+    const confirmDelete = confirm("Delete this product?");
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("products")
+        .delete()
+        .eq("id", productId);
+
+    if (error) {
+        console.error("Delete product error:", error);
+        alert("Could not delete product.");
+        return;
+    }
+
+    alert("Product deleted successfully!");
+
+    loadAdminProducts();
+});
