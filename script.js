@@ -516,3 +516,49 @@ if (rnsaRole === "developer") {
         dashboard.style.display = "block";
     }
 }
+// ==========================================
+// LOAD PRODUCTS INTO DEVELOPER DASHBOARD
+// ==========================================
+
+async function loadAdminProducts() {
+
+    const list = document.getElementById("products-admin-list");
+
+    if (!list) return;
+
+    list.innerHTML = "Loading products...";
+
+    const { data, error } = await supabaseClient
+        .from("products")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error("Load products error:", error);
+        list.innerHTML = "Could not load products.";
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        list.innerHTML = "No products added yet.";
+        return;
+    }
+
+    list.innerHTML = "";
+
+    data.forEach(product => {
+
+        const productItem = document.createElement("div");
+
+        productItem.className = "admin-product-item";
+
+        productItem.innerHTML = `
+            <strong>${product.name}</strong>
+            <span>R${Number(product.price).toFixed(2)}</span>
+        `;
+
+        list.appendChild(productItem);
+    });
+}
+
+loadAdminProducts();
