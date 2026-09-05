@@ -550,13 +550,60 @@ async function loadAdminProducts() {
 
         productItem.className = "admin-product-item";
 
-       productItem.innerHTML = `
+      productItem.innerHTML = `
     <strong>${product.name}</strong>
     <span>R${Number(product.price).toFixed(2)}</span>
+
+    <button type="button" class="edit-product-button" data-id="${product.id}">
+        EDIT
+    </button>
+
     <button type="button" class="delete-product-button" data-id="${product.id}">
         DELETE
     </button>
 `;
+        // ==========================================
+// EDIT PRODUCT
+// ==========================================
+
+document.addEventListener("click", async function (event) {
+
+    if (!event.target.classList.contains("edit-product-button")) {
+        return;
+    }
+
+    const productId = event.target.dataset.id;
+
+    const newName = prompt("Enter the new product name:");
+
+    if (newName === null || newName.trim() === "") {
+        return;
+    }
+
+    const newPrice = prompt("Enter the new price:");
+
+    if (newPrice === null || newPrice.trim() === "") {
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("products")
+        .update({
+            name: newName.trim(),
+            price: Number(newPrice)
+        })
+        .eq("id", productId);
+
+    if (error) {
+        console.error("Edit product error:", error);
+        alert("Could not update product.");
+        return;
+    }
+
+    alert("Product updated successfully!");
+
+    loadAdminProducts();
+});
 
         list.appendChild(productItem);
     });
