@@ -646,3 +646,36 @@ document.addEventListener("click", async function (event) {
 
     loadAdminProducts();
 });
+// ==========================================
+// PRODUCT VARIANTS
+// ==========================================
+
+let selectedProductId = null;
+
+const variantsForm = document.getElementById("variants-admin-form");
+const cancelVariantButton = document.getElementById("cancel-variant-button");
+
+document.addEventListener("click", function (event) {
+
+    if (!event.target.classList.contains("variants-product-button")) {
+        return;
+    }
+
+    selectedProductId = event.target.dataset.id;
+
+    if (variantsForm) {
+        variantsForm.style.display = "block";
+    }
+
+});
+
+if (cancelVariantButton && variantsForm) {
+
+    cancelVariantButton.addEventListener("click", function () {
+
+        variantsForm.style.display = "none";
+        selectedProductId = null;
+
+    });
+
+}
