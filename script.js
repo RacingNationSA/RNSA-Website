@@ -730,3 +730,51 @@ if (saveVariantButton) {
     });
 
 }
+// ==========================================
+// LOAD PRODUCT VARIANTS
+// ==========================================
+
+async function loadProductVariants(productId) {
+
+    const list = document.getElementById("variants-admin-list");
+
+    if (!list) return;
+
+    list.innerHTML = "Loading variants...";
+
+    const { data, error } = await supabaseClient
+        .from("product_variants")
+        .select("*")
+        .eq("product_id", productId)
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error("Load variants error:", error);
+        list.innerHTML = "Could not load variants.";
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        list.innerHTML = "No variants added yet.";
+        return;
+    }
+
+    list.innerHTML = "";
+
+    data.forEach(variant => {
+
+        const variantItem = document.createElement("div");
+
+        variantItem.className = "admin-variant-item";
+
+        variantItem.innerHTML = `
+            <strong>${variant.colour}</strong>
+            <span>Size: ${variant.size}</span>
+            <span>Stock: ${variant.stock}</span>
+        `;
+
+        list.appendChild(variantItem);
+
+    });
+
+}
