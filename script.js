@@ -661,11 +661,13 @@ document.addEventListener("click", function (event) {
         return;
     }
 
-    selectedProductId = event.target.dataset.id;
+   selectedProductId = event.target.dataset.id;
 
-    if (variantsForm) {
-        variantsForm.style.display = "block";
-    }
+if (variantsForm) {
+    variantsForm.style.display = "block";
+}
+
+loadProductVariants(selectedProductId);
 
 });
 
