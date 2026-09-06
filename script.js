@@ -679,3 +679,54 @@ if (cancelVariantButton && variantsForm) {
     });
 
 }
+// ==========================================
+// SAVE PRODUCT VARIANT
+// ==========================================
+
+const saveVariantButton = document.getElementById("save-variant-button");
+
+if (saveVariantButton) {
+
+    saveVariantButton.addEventListener("click", async function () {
+
+        const colour = document.getElementById("variant-colour").value.trim();
+        const size = document.getElementById("variant-size").value.trim();
+        const stock = document.getElementById("variant-stock").value;
+        const message = document.getElementById("variant-form-message");
+
+        if (!selectedProductId) {
+            message.textContent = "Please select a product first.";
+            return;
+        }
+
+        if (!colour || !size || stock === "") {
+            message.textContent = "Please fill in colour, size and stock.";
+            return;
+        }
+
+        message.textContent = "Saving variant...";
+
+        const { error } = await supabaseClient
+            .from("product_variants")
+            .insert({
+                product_id: selectedProductId,
+                colour: colour,
+                size: size,
+                stock: Number(stock)
+            });
+
+        if (error) {
+            console.error("Variant save error:", error);
+            message.textContent = "Could not save variant.";
+            return;
+        }
+
+        message.textContent = "Variant saved successfully!";
+
+        document.getElementById("variant-colour").value = "";
+        document.getElementById("variant-size").value = "";
+        document.getElementById("variant-stock").value = "";
+
+    });
+
+}
