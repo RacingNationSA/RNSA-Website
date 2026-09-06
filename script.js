@@ -557,6 +557,9 @@ async function loadAdminProducts() {
     <button type="button" class="edit-product-button" data-id="${product.id}">
         EDIT
     </button>
+    <button type="button" class="variants-product-button" data-id="${product.id}">
+    VARIANTS
+</button>
 
     <button type="button" class="delete-product-button" data-id="${product.id}">
         DELETE
