@@ -769,11 +769,19 @@ async function loadProductVariants(productId) {
 
         variantItem.className = "admin-variant-item";
 
-        variantItem.innerHTML = `
-            <strong>${variant.colour}</strong>
-            <span>Size: ${variant.size}</span>
-            <span>Stock: ${variant.stock}</span>
-        `;
+    variantItem.innerHTML = `
+    <strong>${variant.colour}</strong>
+    <span>Size: ${variant.size}</span>
+    <span>Stock: ${variant.stock}</span>
+
+    <button
+        type="button"
+        class="delete-variant-button"
+        data-id="${variant.id}"
+    >
+        DELETE
+    </button>
+`;
 
         list.appendChild(variantItem);
 
