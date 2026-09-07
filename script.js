@@ -833,3 +833,62 @@ document.addEventListener("click", async function (event) {
     loadProductVariants(selectedProductId);
 
 });
+// ==========================================
+// EDIT PRODUCT VARIANT
+// ==========================================
+
+document.addEventListener("click", async function (event) {
+
+    if (!event.target.classList.contains("edit-variant-button")) {
+        return;
+    }
+
+    const variantId = event.target.dataset.id;
+
+    const newColour = prompt(
+        "Enter the colour:",
+        event.target.dataset.colour
+    );
+
+    if (newColour === null || newColour.trim() === "") {
+        return;
+    }
+
+    const newSize = prompt(
+        "Enter the size:",
+        event.target.dataset.size
+    );
+
+    if (newSize === null || newSize.trim() === "") {
+        return;
+    }
+
+    const newStock = prompt(
+        "Enter the stock quantity:",
+        event.target.dataset.stock
+    );
+
+    if (newStock === null || newStock.trim() === "") {
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("product_variants")
+        .update({
+            colour: newColour.trim(),
+            size: newSize.trim(),
+            stock: Number(newStock)
+        })
+        .eq("id", variantId);
+
+    if (error) {
+        console.error("Edit variant error:", error);
+        alert("Could not update variant.");
+        return;
+    }
+
+    alert("Variant updated successfully!");
+
+    loadProductVariants(selectedProductId);
+
+});
