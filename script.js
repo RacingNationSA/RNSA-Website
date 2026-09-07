@@ -769,10 +769,21 @@ async function loadProductVariants(productId) {
 
         variantItem.className = "admin-variant-item";
 
-    variantItem.innerHTML = `
+ variantItem.innerHTML = `
     <strong>${variant.colour}</strong>
     <span>Size: ${variant.size}</span>
     <span>Stock: ${variant.stock}</span>
+
+    <button
+        type="button"
+        class="edit-variant-button"
+        data-id="${variant.id}"
+        data-colour="${variant.colour}"
+        data-size="${variant.size}"
+        data-stock="${variant.stock}"
+    >
+        EDIT
+    </button>
 
     <button
         type="button"
