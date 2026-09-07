@@ -788,3 +788,37 @@ async function loadProductVariants(productId) {
     });
 
 }
+// ==========================================
+// DELETE PRODUCT VARIANT
+// ==========================================
+
+document.addEventListener("click", async function (event) {
+
+    if (!event.target.classList.contains("delete-variant-button")) {
+        return;
+    }
+
+    const variantId = event.target.dataset.id;
+
+    const confirmDelete = confirm("Delete this variant?");
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("product_variants")
+        .delete()
+        .eq("id", variantId);
+
+    if (error) {
+        console.error("Delete variant error:", error);
+        alert("Could not delete variant.");
+        return;
+    }
+
+    alert("Variant deleted successfully!");
+
+    loadProductVariants(selectedProductId);
+
+});
