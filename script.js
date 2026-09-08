@@ -892,3 +892,59 @@ document.addEventListener("click", async function (event) {
     loadProductVariants(selectedProductId);
 
 });
+// ==========================================
+// LOAD PRODUCTS ON PUBLIC MERCH PAGE
+// ==========================================
+
+async function loadPublicProducts() {
+
+    const productsList = document.getElementById("products-list");
+
+    // Only run this on pages with the products list
+    if (!productsList) return;
+
+    productsList.innerHTML = "Loading products...";
+
+    const { data, error } = await supabaseClient
+        .from("products")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error("Load public products error:", error);
+        productsList.innerHTML = "Could not load products.";
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        productsList.innerHTML = "No products available yet.";
+        return;
+    }
+
+    productsList.innerHTML = "";
+
+    data.forEach(product => {
+
+        const productCard = document.createElement("div");
+
+        productCard.className = "product-card";
+
+        productCard.innerHTML = `
+            <div class="product-image">
+                <img src="${product.image_url}" alt="${product.name}">
+            </div>
+
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p>${product.description || ""}</p>
+                <strong>R${product.price}</strong>
+            </div>
+        `;
+
+        productsList.appendChild(productCard);
+
+    });
+
+}
+
+loadPublicProducts();
