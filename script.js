@@ -989,5 +989,5 @@ document.addEventListener("click", function (event) {
     const productName = event.target.dataset.name;
     const price = Number(event.target.dataset.price);
 
-    addToCart(productName, price);
+    addTocart(productName, price);
 });
