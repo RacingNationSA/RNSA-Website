@@ -960,11 +960,20 @@ async function loadPublicProducts() {
                 <img src="${product.image_url}" alt="${product.name}">
             </div>
 
-            <div class="product-info">
-                <h3>${product.name}</h3>
-                <p>${product.description || ""}</p>
-                <strong>R${product.price}</strong>
-            </div>
+           <div class="product-info">
+    <h3>${product.name}</h3>
+    <p>${product.description || ""}</p>
+    <strong>R${product.price}</strong>
+
+    <button
+        type="button"
+        class="add-to-cart-button"
+        data-id="${product.id}"
+        data-name="${product.name}"
+        data-price="${product.price}">
+        ADD TO CART
+    </button>
+</div>
         `;
 
         productsList.appendChild(productCard);
