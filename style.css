@@ -2333,3 +2333,16 @@ footer p {
     object-fit: contain;
     object-position: center;
 }
+.add-to-cart-button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    background: #e10600;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 6px;
+}
