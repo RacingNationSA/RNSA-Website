@@ -138,13 +138,10 @@ function orderProduct(product, price) {
         `Please send me the available sizes, ` +
         `colours and payment information.`;
 
-    const whatsappURL =
-        `https://wa.me/${phoneNumber}?text=${message}`;
+   const whatsappURL =
+    `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
+window.open(whatsappURL, "_blank");
 
 }
 // ==========================================
