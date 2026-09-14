@@ -465,7 +465,7 @@ if (saveProductButton) {
         const name = document.getElementById("product-name").value.trim();
         const description = document.getElementById("product-description").value.trim();
         const price = document.getElementById("product-price").value;
-        const imageUrl = document.getElementById("product-image-url").value.trim();
+        const imageFile = document.getElementById("product-image").files[0];
         const message = document.getElementById("product-form-message");
 
         if (!name || !price) {
@@ -475,14 +475,40 @@ if (saveProductButton) {
 
         message.textContent = "Saving product...";
 
-        const { error } = await supabaseClient
-            .from("products")
-            .insert({
-                name: name,
-                description: description,
-                price: Number(price),
-                image_url: imageUrl || null
-            });
+        let imageUrl = null;
+
+// Upload image to Supabase Storage
+if (imageFile) {
+
+    const fileName = `${Date.now()}-${imageFile.name}`;
+
+    const { error: uploadError } = await supabaseClient
+        .storage
+        .from("product-images")
+        .upload(fileName, imageFile);
+
+    if (uploadError) {
+        console.error("Image upload error:", uploadError);
+        message.textContent = "Could not upload image.";
+        return;
+    }
+
+    const { data: imageData } = supabaseClient
+        .storage
+        .from("product-images")
+        .getPublicUrl(fileName);
+
+    imageUrl = imageData.publicUrl;
+}
+
+const { error } = await supabaseClient
+    .from("products")
+    .insert({
+        name: name,
+        description: description,
+        price: Number(price),
+        image_url: imageUrl
+    });
 
         if (error) {
             console.error("Product save error:", error);
