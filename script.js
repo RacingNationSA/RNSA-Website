@@ -138,6 +138,7 @@ function orderProduct(product, price) {
         `Please send me the available sizes, ` +
         `colours and payment information.`;
 
+    const phoneNumber = "27762138198";
    const whatsappURL =
     `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
