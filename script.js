@@ -983,3 +983,11 @@ async function loadPublicProducts() {
 }
 
 loadPublicProducts();
+document.addEventListener("click", function (event) {
+    if (!event.target.classList.contains("add-to-cart-button")) return;
+
+    const productName = event.target.dataset.name;
+    const price = Number(event.target.dataset.price);
+
+    addToCart(productName, price);
+});
