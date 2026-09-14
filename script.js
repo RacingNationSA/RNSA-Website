@@ -965,14 +965,12 @@ async function loadPublicProducts() {
     <p>${product.description || ""}</p>
     <strong>R${product.price}</strong>
 
-    <button
-        type="button"
-        class="add-to-cart-button"
-        data-id="${product.id}"
-        data-name="${product.name}"
-        data-price="${product.price}">
-        ADD TO CART
-    </button>
+   <button
+    type="button"
+    class="add-to-cart-button"
+    onclick="addToCart('${product.name}', ${product.price})">
+    ADD TO CART
+</button>
 </div>
         `;
 
