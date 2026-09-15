@@ -128,7 +128,7 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
 function orderProduct(product, price) {
 
-    const phoneNumber = "27000000000";
+    const phoneNumber = "27762138198";
 
     const message =
         `Hi RNSA! 👋%0A%0A` +
@@ -138,7 +138,6 @@ function orderProduct(product, price) {
         `Please send me the available sizes, ` +
         `colours and payment information.`;
 
-    const phoneNumber = "27762138198";
    const whatsappURL =
     `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
